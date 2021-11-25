@@ -10,7 +10,6 @@ const addReview = async (req, res) => {
     const rating = req.body.rating;
     const locationID = req.body.locationID;
     const type = req.body.type;
-    
     // console.log(locationID);
     if(body===''){
         res.status(401).json(error);
@@ -43,7 +42,7 @@ const addReview = async (req, res) => {
         }else{
             const data = await getPlacesDetails(locationID,type);
             if(data){
-                const placeData = await Place.create({placeID: locationID,name: data?.name,image: data?.photo.images.original.url});
+                const placeData = await Place.create({placeID: locationID,name: data?.name,image: data?.photo?.images?.original?.url});
                 if(placeData){
                     try {
                             const review = await PlaceReview.create({

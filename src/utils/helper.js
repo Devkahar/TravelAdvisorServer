@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const key = "42aa039cbfmshee326db8eb75280p125554jsn359b0ed12bfd";
+const key = "4ec0effb18msh782b7dd34f6d8f1p118635jsn3cf88ea39561";
 const getPlacesDetails = async (id,type) =>{
     console.log(id);
     const URL =  `https://travel-advisor.p.rapidapi.com/${type}/get-details`;

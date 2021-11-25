@@ -23,6 +23,7 @@ const registerUser = async (req, res) => {
               name: user.name,
               email: user.email,
               token: generateToken(user._id),
+              pic: user.pic,
             })
         } 
     } catch (error) {
@@ -38,6 +39,7 @@ const loginUser = async (req, res) => {
             name: user.name,
             email: user.email,
             role: user.role,
+            pic: user.pic,
             token: generateToken(user._id),
         })
     }
@@ -52,8 +54,6 @@ const addToBucket = async (req, res) => {
     const placeID = req.body.placeID;
     const type = req.body.type;
     const _id = req.user.id;
-
-
     const resdata = await  Place.findOne({placeID : placeID});
         if(resdata){
               try {
